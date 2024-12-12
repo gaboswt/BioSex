@@ -9,6 +9,8 @@ import whisper
 import pyaudio #CAPTURA EN TIEMPO REAL EL AUDIO 
 import wave #PARA IMPORTAR EL AUDIO EN WAV
 
+#--------------------------------------------PARTE DE GABRIEL--------------------------------------------
+
 # Archivo Excel para guardar los datos
 EXCEL_FILE = "Histo.xlsx"
 
@@ -59,11 +61,13 @@ def _crear_encabezados(hoja):
 # Llamar a la función para inicializar el archivo Excel
 inicializar_excel()
 
+#--------------------------------------------PARTE DE MELISSA--------------------------------------------
+
 def escuchar_y_procesar_respuesta():
     modelo = whisper.load_model("base") #más ligera y rápida 
     CHUNK = 1024 #tamaño de los bloques de audio que se capturan por fragmentos 
     FORMAT = pyaudio.paInt16 #el audio se guarda en 16 bts 
-    CHANNELS = 1#graba en modo monofonico
+    CHANNELS = 1 #graba en modo monofonico
     RATE = 16000 #frecuencia
     DURACION = 5
     ARCHIVO_SALIDA = "respuesta.wav"
@@ -100,6 +104,8 @@ def escuchar_y_procesar_respuesta():
     else:
         print("No se entendió, intente nuevamente.")
         return None  # No entendió
+
+#--------------------------------------------PARTE DE GABRIEL--------------------------------------------
 
 def guardar_en_excel(nombre, apellido, edad, genero, respuestas):
     """Guarda los datos en el archivo Excel."""
@@ -166,6 +172,8 @@ def actualizar_enfermedad(enfermedad):
         sida += 1
     elif enfermedad == "vph":
         vph += 1
+
+#--------------------------------------------PARTE DE MARIA DEL ROSARIO--------------------------------------------
 
 def que1():
     ventana_pregunta(
@@ -275,6 +283,8 @@ def que12():
         indice_pregunta=11
     )
 
+#--------------------------------------------PARTE DE MELISSA--------------------------------------------
+
 def mostrar_resultados():
     ventana_resultados = tk.Toplevel()
     ventana_resultados.attributes('-fullscreen', True)
@@ -355,6 +365,7 @@ def mostrar_resultados():
     )
     boton_regresar.place(relx=0.49, rely=0.868, anchor="center", width=234, height=48)
 
+#--------------------------------------------PARTE DE HORACIO--------------------------------------------
 
 def ventana_pregunta(imagen_fondo, enfermedad, siguiente_funcion, imagen_info, indice_pregunta):
     """Función genérica para manejar ventanas de preguntas."""
@@ -474,6 +485,7 @@ def ventana_pregunta(imagen_fondo, enfermedad, siguiente_funcion, imagen_info, i
     )
     boton_voz.place(relx=0.5, rely=0.7, anchor="center")
 
+#--------------------------------------------PARTE DE GABRIEL--------------------------------------------
 
 def ventana_toma_datos():
     global variables_respuestas
@@ -585,6 +597,7 @@ def ventana_toma_datos():
     )
     boton_guardar.place(relx=0.5, rely=0.8, anchor="center", width=200, height=50)
 
+#--------------------------------------------PARTE DE HORACIO--------------------------------------------
 
 def ventana_principal():
     # Crear la ventana principal
